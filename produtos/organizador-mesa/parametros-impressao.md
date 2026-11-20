@@ -27,7 +27,21 @@ Interno. Definido pelo humano: **PETG, bico 0,6 mm**. Valores abaixo são ponto 
 - PETG tende a fazer fio (stringing) e a colar demais: testar a rosca com folga maior.
 - Sem vedação: não é à prova de água.
 
+## Economia de filamento (v5)
+- `tampa_v5.stl`: bolso Ø56 aberto por cima, piso a 2,4 mm da ranhura. -19,7 cm³ (-46%) contra a tampa v4. Rosca e ranhura idênticas. Imprimir com a ranhura na mesa e o bolso pra cima.
+- Fatiador (estimativa): corpo com infill 10% gyroid, 3 paredes, 4 camadas de topo e fundo. Tampa v5 com 3 paredes e infill ~25%.
+- Meta: de ~205 g pra ~165 g (corpo + tampa). Cupom (anel + tampa v5): ~40 g.
+
+## Suporte da cavidade (decisão do humano)
+Teto plano do v4 (Ø62 em z=45), com suporte só dentro da cavidade. Pontos de partida (estimativa, ajustar no protótipo):
+- Suporte **só onde pintado/forçado** (support enforcer) na cavidade. Bloquear no resto, em especial na rosca: suporte nos flancos estragaria o perfil.
+- Coluna sobe da mesa (a cavidade é aberta por baixo pela boca da rosca), mantendo folga do canal da rosca (raio ≤ ~30 mm).
+- Distância vertical do suporte ao teto: 0,3 mm (PETG gruda em PETG; folga maior solta mais fácil).
+- Camadas de interface no topo: 2 a 3. Densidade do suporte: ~10-15%.
+- Retirada pela boca da rosca depois de esfriar. Lixar o teto se ficar áspero (fica escondido dentro da cavidade).
+- Medir no protótipo: o teto cedeu? Sobrou marca? O suporte saiu inteiro?
+
 ## Pendências
 - [ ] Decidir folga da rosca (0,3 ou 0,4).
-- [ ] Decidir teto da cavidade (cone, cúpula ou suporte).
+- [x] Teto da cavidade: suporte (decidido).
 - [ ] Imprimir um anel de teste da rosca antes da peça inteira.
