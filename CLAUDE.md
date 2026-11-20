@@ -5,6 +5,8 @@
 ## O que é
 A Faixa Preta cria objetos comuns, familiares e cotidianos com um segredo. O diferencial está no projeto: aparência normal, construção cuidadosa e algo que só aparece pra quem sabe onde olhar.
 
+Produção: os objetos são feitos por impressão 3D.
+
 ## Marca
 - Tom: discreto, curioso, cúmplice. Nunca óbvio, nunca barulhento.
 - Nunca revelar o segredo em textos de marketing. Sugerir, não entregar.
