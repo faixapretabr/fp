@@ -32,10 +32,8 @@ Produção: os objetos são feitos por impressão 3D.
 ## Regras de ouro (o Claude segue isso à risca)
 - Responda em português, tom informal e direto.
 - Mudança pequena: mostre só o diff, não reescreva o arquivo todo.
-- Só mexa no que eu pedi. Vai mexer em vários arquivos? Pergunte antes.
+- Só mexa no que eu pedi. Vai alterar vários arquivos que já existem? Pergunte antes. Criar arquivos novos dentro do que eu pedi não precisa perguntar.
 - Nunca commitar sem eu pedir.
 - Seja proativo: sugira melhorias sem esperar eu pedir.
-- Sempre termine propondo o próximo passo.
-- Termine toda resposta com 🥋 (regra de teste, pode apagar depois).
-    
+- Sempre termine propondo o próximo passo.    
 NADA É SÓ O QUE PARECE.
