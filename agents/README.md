@@ -15,4 +15,5 @@ Definições dos agents autônomos da Faixa Preta. Cada agent é um arquivo `.md
 
 ## Agents
 - `atendimento.md`: atendimento ao cliente.
+- `documentacao.md`: mantém o repositório e a documentação em dia.
 - `produto/`: departamento de Produto (do objeto até o STL final).
