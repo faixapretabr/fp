@@ -20,13 +20,19 @@ Produção: os objetos são feitos por impressão 3D.
 - Dados de clientes nunca vão pra ferramentas externas sem autorização.
 
 ## Comandos
-- A definir: o repo ainda não tem `package.json`.
-- Quando existir: instalar, rodar, testar e lint vão aqui.
+- Sem `package.json`. Os modelos 3D são scripts Python com CadQuery (`pip install cadquery`).
+- Rodar de dentro de `produtos/organizador-mesa/modelo/` (os STL saem na mesma pasta):
+  - `python porta-lapis_v3.py v4` — corpo v4 + tampa v4
+  - `python porta-lapis_v5.py` — tampa v5 (usa o v3)
+  - `python cupom_rosca_v4.py` — anel do cupom da rosca
+- Sem testes nem lint ainda.
 
 ## Estrutura
 - `README.md` — visão geral pra humanos
 - `.vscode/` — config do editor
-- `agents/` — definições dos agents autônomos
+- `agents/` — definições dos agents autônomos (`produto/` = departamento de Produto)
+- `produtos/` — um produto por pasta (hoje: `organizador-mesa/`). Conteúdo interno
+- `pesquisa/` — pesquisas de apoio (ex.: materiais 3D)
 - `src/` — (a criar) código do produto
 
 ## Regras de ouro (o Claude segue isso à risca)

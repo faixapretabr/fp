@@ -3,6 +3,7 @@
 Interno. Nada daqui vai pra marketing.
 
 **Status:** proposta do agent. Aguarda escolha do humano (mecanismo e formato).
+**Nota (superado):** esta proposta é histórica. O desenho que seguiu pra modelagem é tampa roscada com fundo falso (corpo v4 + tampa v5), não a baioneta A. Ver `03-validacao.md` e o `README.md` desta pasta. A escolha do humano não está registrada aqui _(confirmar e registrar)_.
 **Atenção:** todos os números são ESTIMATIVA (assumido porta-lápis ~Ø80x100 mm, PLA/PETG). Nada foi medido nem impresso.
 
 ## Mecanismos propostos

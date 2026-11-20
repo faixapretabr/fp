@@ -12,6 +12,9 @@ produtos/<nome>/
   final/             .stl aprovado + ficha-producao.md
 ```
 
+## Produtos
+- `organizador-mesa/`: porta-lápis. Em modelagem. Ver `organizador-mesa/README.md`.
+
 ## Regras
 - Conteúdo interno. Nada daqui vai pra marketing.
 - Um produto só entra em `final/` com as duas aprovações humanas registradas.

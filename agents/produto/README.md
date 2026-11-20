@@ -18,8 +18,8 @@ Vai da escolha do objeto até o STL final pronto pra produção.
 - Cada produto vive em `produtos/<nome>/`.
 
 ## Agents
-- `selecao.md`
-- `segredo.md`
-- `modelagem.md`
-- `validacao.md`
-- `entrega.md`
+- `selecao.md`: escolhe o objeto
+- `segredo.md`: desenha o compartimento
+- `modelagem.md`: gera o modelo 3D
+- `validacao.md`: checa a peça
+- `entrega.md`: STL final + ficha de produção

@@ -16,11 +16,12 @@ Aparência normal, construção cuidadosa, utilidade discreta.
 
 ## Estrutura do repo
 - `CLAUDE.md`: regras pro Claude Code
-- `PLANO-LEARN.md`: roteiro pra aprender o Claude Code
-- `agents/`: agents autônomos (a criar)
+- `agents/`: agents autônomos (atendimento, documentação e o departamento de Produto)
+- `produtos/`: um produto por pasta. Conteúdo interno
+- `pesquisa/`: pesquisas de apoio (`materiais-3d.md`: comparativo de materiais de impressão)
 - `src/`: código do produto (a criar)
 
 ## Status
-🚧 Em construção.
+🚧 Em construção. Primeiro produto (`produtos/organizador-mesa/`) em modelagem, ainda sem protótipo impresso nem aprovação final. Detalhes no README da pasta.
 
 *NADA É SÓ O QUE PARECE.*
