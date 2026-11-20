@@ -16,7 +16,8 @@ Aparência normal, construção cuidadosa, utilidade discreta.
 
 ## Estrutura do repo
 - `CLAUDE.md`: regras pro Claude Code
-- `agents/`: agents autônomos (atendimento, documentação e o departamento de Produto)
+- `docs/CONTEXTO.md`: ficha de retomada (estado atual, decisões, pendências, próximos passos)
+- `agents/`: agents autônomos (atendimento, documentação, loja Shopify e os departamentos de Produto e Marketing)
 - `produtos/`: um produto por pasta. Conteúdo interno
 - `pesquisa/`: pesquisas de apoio (`materiais-3d.md`: comparativo de materiais de impressão)
 - `src/`: código do produto (a criar)

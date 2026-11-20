@@ -32,7 +32,7 @@ Interno. Nada daqui vai pra marketing.
 
 ## Pendências
 - [ ] Imprimir o cupom (anel + tampa) e preencher o resultado em `03-validacao.md`.
-- [ ] Decidir folga da rosca (0,3 ou 0,4) com base no cupom.
+- [ ] Folga da rosca: 0,4 mm adotada, a confirmar no cupom (presa: 0,5; frouxa: 0,3).
 - [ ] Protótipo do corpo inteiro (ponte de 62 mm com suporte).
 - [ ] Registrar em `02-segredo.md` a escolha do humano (mecanismo e formato).
 - [ ] Segundo portão humano (aprovação do modelo). Só depois `final/`.

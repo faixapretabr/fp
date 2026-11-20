@@ -16,6 +16,12 @@ Interno. Definido pelo humano: **PETG, bico 0,6 mm**. Valores abaixo são ponto 
 | Temp. bico / mesa | conforme o filamento (PETG costuma ficar em 230-250 / 70-85) | idem |
 | Orientação | em pé, borda da rosca na mesa | face da ranhura na mesa |
 
+Definido pelo humano em 2026-11-20. Regras de modelagem que decorrem disso:
+- Paredes em múltiplos de ~0,6 mm.
+- Folga de rosca mínima de 0,4 mm.
+- Camada de 0,2 a 0,3 mm.
+- Evitar pontes longas.
+
 ## O que o bico 0,6 muda no desenho
 - Divisórias de 2 mm: ok (≈3 linhas).
 - Fundo falso de 3 mm: ok (10 camadas de 0,3).
@@ -42,6 +48,6 @@ Teto plano do v4 (Ø62 em z=45), com suporte só dentro da cavidade. Pontos de p
 - Medir no protótipo: o teto cedeu? Sobrou marca? O suporte saiu inteiro?
 
 ## Pendências
-- [ ] Decidir folga da rosca (0,3 ou 0,4).
+- [ ] Folga da rosca: 0,4 mm adotada, a confirmar no cupom (presa: 0,5; frouxa: 0,3).
 - [x] Teto da cavidade: suporte (decidido).
 - [ ] Imprimir um anel de teste da rosca antes da peça inteira.

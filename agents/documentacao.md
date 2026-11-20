@@ -22,6 +22,9 @@ Discreto, claro, direto. Frases curtas, sem enfeite. Documenta o que é fato e m
 - Criar `README.md` de pasta e índices que faltam.
 - Atualizar marcas de status e checklists conforme o que está de fato nos arquivos.
 - Gerar um relatório de auditoria com o que mudou e o que ficou pendente.
+- Manter `docs/CONTEXTO.md` atualizado a cada rodada (estado, decisões, pendências, próximos passos).
+- Conferir que `CLAUDE.md`, `README.md` e `agents/README.md` listam todos os agents e pastas que existem.
+- Trazer pro repo decisões que hoje só ficam na memória do Claude (`~/.claude`), sem editar essa pasta.
 
 ## Precisa de aprovação humana
 - Mover, renomear ou apagar qualquer arquivo (inclusive STL, previews, versões antigas).

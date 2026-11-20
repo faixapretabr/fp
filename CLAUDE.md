@@ -30,7 +30,8 @@ Produção: os objetos são feitos por impressão 3D.
 ## Estrutura
 - `README.md` — visão geral pra humanos
 - `.vscode/` — config do editor
-- `agents/` — definições dos agents autônomos (`produto/` = departamento de Produto)
+- `docs/CONTEXTO.md` — ficha de retomada: estado atual, decisões, pendências, próximos passos. Leia primeiro em dispositivo novo
+- `agents/` — definições dos agents autônomos (`atendimento.md`, `documentacao.md`, `loja.md`, `produto/` = Produto, `marketing/` = Marketing e Conteúdo)
 - `produtos/` — um produto por pasta (hoje: `organizador-mesa/`). Conteúdo interno
 - `pesquisa/` — pesquisas de apoio (ex.: materiais 3D)
 - `src/` — (a criar) código do produto
