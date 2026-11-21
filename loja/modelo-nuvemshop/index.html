@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<!--
+PROTOTIPO LOCAL - Faixa Preta x Nuvemshop. Nada publicado. Preco R$ 89,90 = SIMULACAO.
+Fotos = RENDERS de teste (nao sao fotos reais da peca). Usadas so foto3 e foto4 (peca fechada, sem rosca legivel); foto1 e foto2 removidas por mostrarem o interior/rosca.
+
+EDITAVEL DE FATO (tema do catalogo + editor / CSS; ou CLI sobre tema base):
+ - Cores, fontes, logo, textos de home, secoes ligadas/desligadas, ordem das secoes
+ - Pagina de produto: galeria, descricao, acordeoes, tabela de medidas (campos do produto)
+ - Paginas Sobre e FAQ (paginas de conteudo)
+ - Carrinho: so o que o tema expoe (estilo e textos); estrutura depende do tema
+ - Codigo HTML/CSS/JS do layout: so em plano com acesso ao codigo-fonte (plano exato NAO VERIFICADO: Impulso ou Escala) ou via CLI (tema base aceito hoje: ipanema; plano exigido NAO VERIFICADO)
+EXIGIRIA PLANO MAIOR:
+ - Codigo personalizado no checkout: so plano Next, e mesmo la "nao e possivel alterar livremente campos, botoes ou estrutura"
+ - Barra fixa de compra no mobile, se o tema escolhido nao tiver (precisa editar codigo = plano com codigo-fonte)
+NAO EDITAVEL: checkout (mostrado em caixa cinza como padrao da plataforma). Fonte: docs/operacao/t13-nuvemshop-api-tema.md (2026-11-20).
+Linguagem de template da Nuvemshop (Twig, HIPOTESE) difere deste HTML estatico.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porta-lápis preto de mesa, impresso em 3D | Faixa Preta</title>
+<meta name="description" content="Porta-lápis de mesa em PETG, impresso em 3D, com estrias finas. Parece comum. Quem usa todo dia sabe que não é. Faixa Preta.">
+<style>
+:root{--k:#000;--c:#FEF3E6;--w:#fff;--y:#FFC002;--g:#5c5c5c;--line:1px solid #000;--sp:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.6;letter-spacing:.01em;background:var(--c);color:var(--k);max-width:480px;margin:0 auto;overflow-x:hidden}
+img{display:block;width:100%;height:auto}
+a{color:inherit}
+.lbl{font:500 10px/1 Inter,Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em}
+h1,h2,h3,.h{font-family:"Space Grotesk","Arial Narrow",Arial,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
+header{display:flex;justify-content:space-between;align-items:center;padding:8px var(--sp);border-bottom:var(--line);background:var(--c);min-height:52px;position:sticky;top:0;z-index:5}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo i{display:block;width:34px;height:7px;border:2px solid var(--k)}
+.logo b{font:700 14px "Space Grotesk",Arial,sans-serif;text-transform:uppercase;letter-spacing:-.02em}
+nav{display:flex;gap:4px}
+nav a{min-height:44px;display:flex;align-items:center;padding:0 8px;text-decoration:none}
+section{scroll-margin-top:52px;padding:40px var(--sp);border-bottom:var(--line)}
+.dark{background:var(--k);color:var(--c)}
+.tag{display:block;margin:0 calc(var(--sp)*-1);padding:8px var(--sp);background:#e4e4e4;color:#333;border-bottom:var(--line)}
+.hero h1{font-size:46px;margin:16px 0 20px}
+.hero p{max-width:30ch}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;width:100%;border:2px solid var(--k);font:700 14px "Space Grotesk",Arial,sans-serif;text-transform:uppercase;letter-spacing:.04em;background:transparent;color:inherit;margin-top:24px;text-decoration:none;cursor:pointer}
+.btn.y{background:var(--y);color:var(--k)}
+.dark .btn.out{border-color:var(--c)}
+h2{font-size:30px;margin:12px 0 0}
+.fig{position:relative;margin-top:16px;border:var(--line)}
+.fig figcaption{position:absolute;left:0;bottom:0;background:var(--k);color:var(--c);padding:4px 8px}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.thumbs img{aspect-ratio:1/1;object-fit:cover;border:var(--line)}
+.price{font:700 30px "Space Grotesk",Arial,sans-serif;margin:12px 0 4px}
+.sim{display:inline-block;border:var(--line);padding:3px 6px;margin-left:6px;vertical-align:middle}
+.note{font-size:12px;color:var(--g)}
+.dark .note{color:#bbb}
+.spec{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
+.spec td{border-top:var(--line);padding:10px 0}
+.spec td:last-child{text-align:right}
+details{border-top:var(--line)}
+details:last-of-type{border-bottom:var(--line)}
+summary{min-height:52px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none;font:700 16px "Space Grotesk",Arial,sans-serif;text-transform:uppercase}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+"}
+details[open] summary::after{content:"-"}
+details p{padding:0 0 14px;font-size:14px}
+.qty{display:flex;border:var(--line);width:132px;margin-top:12px}
+.qty span{width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.qty span:nth-child(2){border-left:var(--line);border-right:var(--line)}
+.row{display:grid;grid-template-columns:84px 1fr;gap:12px;border-top:var(--line);border-bottom:var(--line);padding:12px 0;margin-top:16px}
+.row img{aspect-ratio:1/1;object-fit:cover;border:var(--line)}
+.tot{display:flex;justify-content:space-between;padding:10px 0;border-bottom:var(--line);font-size:14px}
+.tot.b{font:700 18px "Space Grotesk",Arial,sans-serif}
+.plat{background:#d4d4d4;border:1px dashed #666;color:#333;padding:20px 16px;margin-top:16px;text-align:center}
+.plat .bar{height:10px;background:#bdbdbd;margin:10px auto;max-width:80%}
+.plat .bar.s{max-width:50%}
+.sticky{position:sticky;bottom:0;background:var(--c);border-top:var(--line);padding:10px var(--sp);display:flex;gap:12px;align-items:center;z-index:5}
+.sticky .btn{margin:0}
+.sticky .p{font:700 16px "Space Grotesk",Arial,sans-serif;white-space:nowrap}
+.card img{aspect-ratio:4/5;object-fit:cover;border:var(--line);margin-top:16px}
+footer{padding:32px var(--sp) 40px;font-size:13px;display:grid;gap:4px}
+footer a{min-height:32px;display:flex;align-items:center}
+.sr{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+
+<header>
+ <a class="logo" href="#home" aria-label="Faixa Preta, início"><i></i><b>Faixa Preta</b></a>
+ <nav class="lbl" aria-label="Principal"><a href="#sobre">Sobre</a><a href="#faq">FAQ</a><a href="#carrinho">Cesta (1)</a></nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="hero dark">
+ <div class="lbl">Coleção GEN</div>
+ <h1>Nada é só<br>o que parece.</h1>
+ <p>Objetos do cotidiano. Feitos com precisão, impressos em 3D.</p>
+ <a class="btn y" href="#produto">Ver o porta-lápis</a>
+</section>
+
+<section class="card">
+ <div class="lbl">Em linha</div>
+ <h2>Porta-lápis</h2>
+ <img src="img/foto4_916_3-4-de-cima_RENDER.png" alt="Porta-lápis preto fosco com estrias verticais finas, visto de cima, sobre fundo neutro" width="864" height="1536">
+ <p class="note" style="margin-top:6px">Render de teste, não é foto da peça.</p>
+ <p style="margin-top:12px">Preto fosco, estrias finas. Cabe na mesa e some nela.</p>
+ <a class="btn" href="#produto">Ver detalhes</a>
+</section>
+
+<section class="dark">
+ <div class="lbl">Como é feito</div>
+ <h2 style="margin-bottom:16px">Precisão<br>em cada camada</h2>
+ <p>Impresso em 3D, em PETG, com folgas medidas. Cada peça sai da máquina do jeito que foi projetada.</p>
+</section>
+
+<!-- PRODUTO -->
+<section id="produto">
+ <div class="lbl">Produto</div>
+ <figure class="fig">
+  <img src="img/foto3_916_mao-usando_RENDER.png" alt="Mão pegando um lápis no porta-lápis preto sobre a mesa de trabalho" width="864" height="1536" style="aspect-ratio:4/5;object-fit:cover">
+  <figcaption class="lbl">Render de teste</figcaption>
+ </figure>
+ <div class="thumbs" style="grid-template-columns:repeat(2,1fr)">
+  <img src="img/foto4_916_3-4-de-cima_RENDER.png" alt="Porta-lápis preto visto em três quartos, de cima" width="864" height="1536" loading="lazy">
+  <img src="img/foto3_916_mao-usando_RENDER.png" alt="Mão pegando um lápis no porta-lápis preto" width="864" height="1536" loading="lazy">
+ </div>
+
+ <div class="lbl" style="margin-top:28px">Coleção GEN</div>
+ <h1 style="font-size:32px;margin-top:10px">Porta-lápis Faixa Preta</h1>
+ <p>Nada é só o que parece.</p>
+ <div class="price">R$ 89,90 <span class="lbl sim">simulação</span></div>
+ <p class="note">Frete calculado na cesta. Valores de teste.</p>
+ <p style="margin-top:16px">Preto fosco, estrias finas, impresso em 3D. Um porta-lápis. Você acha.</p>
+ <table class="spec" aria-label="Especificações">
+  <tr><td>Formato</td><td>80 x 150 mm (a confirmar)</td></tr>
+  <tr><td>Material</td><td>PETG</td></tr>
+  <tr><td>Cor</td><td>Preto fosco</td></tr>
+ </table>
+ <a class="btn y" href="#carrinho">Adicionar à cesta</a>
+</section>
+
+<section>
+ <details><summary>Medidas e material</summary><p>Ficha final só depois da peça medida. Hoje: números do projeto, a confirmar.</p></details>
+ <details><summary>Entrega</summary><p>Prazo: produção sob demanda mais o prazo do frete. A definir.</p></details>
+ <details><summary>Trocas</summary><p>Conforme o Código de Defesa do Consumidor. Texto final em revisão.</p></details>
+</section>
+
+<section class="dark">
+ <h2>Repara.<br>Quem usa, percebe.</h2>
+</section>
+
+<!-- CARRINHO (mock) -->
+<section id="carrinho">
+ <span class="lbl tag">Mock do carrinho: o tema define a estrutura</span>
+ <h2 style="margin-top:24px">Sua cesta</h2>
+ <div class="row">
+  <img src="img/foto4_916_3-4-de-cima_RENDER.png" alt="Porta-lápis preto" width="84" height="84" loading="lazy">
+  <div><div class="h" style="font-size:15px">Porta-lápis Faixa Preta</div><div class="note">Preto fosco</div>
+   <div class="qty" role="group" aria-label="Quantidade"><span>-</span><span>1</span><span>+</span></div></div>
+ </div>
+ <div class="tot" style="margin-top:12px"><span>Subtotal</span><span>R$ 89,90 (simulação)</span></div>
+ <div class="tot"><span>Frete</span><span>calculado por CEP</span></div>
+ <div class="tot b"><span>Total</span><span>R$ 89,90</span></div>
+ <a class="btn" href="#checkout">Finalizar compra</a>
+</section>
+
+<section id="checkout">
+ <div class="lbl">Checkout</div>
+ <div class="plat" role="img" aria-label="Checkout padrão da plataforma, não personalizável">
+  <div class="lbl">Padrão da plataforma</div>
+  <div class="bar"></div><div class="bar s"></div><div class="bar"></div>
+  <p style="font-size:13px;margin-top:8px">Checkout da Nuvemshop. Campos, botões e estrutura não mudam livremente.</p>
+ </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+ <div class="lbl">Sobre</div>
+ <h2>Comum por fora</h2>
+ <p style="margin-top:16px">A Faixa Preta faz objetos que você já conhece. Aparência normal, construção cuidadosa.</p>
+ <p style="margin-top:12px">O resto fica entre você e o objeto.</p>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+ <div class="lbl">Perguntas frequentes</div>
+ <h2 style="margin-bottom:16px">FAQ</h2>
+ <details><summary>De que material é feito?</summary><p>PETG, impresso em 3D, na cor preta.</p></details>
+ <details><summary>Por que dá pra ver as camadas?</summary><p>É impressão 3D. Pequenas variações de textura são normais.</p></details>
+ <details><summary>Qual o prazo?</summary><p>A definir. Os prazos ainda são simulação.</p></details>
+ <details><summary>Posso devolver?</summary><p>Sim, conforme o Código de Defesa do Consumidor.</p></details>
+ <details><summary>É só um porta-lápis?</summary><p>É um porta-lápis, e dos bons. O resto você descobre com ele na mão.</p></details>
+</section>
+
+<footer>
+ <a class="logo" href="#home"><i></i><b>Faixa Preta</b></a>
+ <a href="#sobre">Sobre</a><a href="#faq">Entrega e trocas</a><a href="#faq">Contato</a>
+ <p class="note" style="margin-top:8px">Protótipo local. Preços e prazos são simulação.</p>
+</footer>
+
+<div class="sticky">
+ <div class="p">R$ 89,90 <span class="note">sim.</span></div>
+ <a class="btn" href="#carrinho" style="border-color:var(--k)">Cesta</a>
+</div>
+</body>
+</html>
