@@ -1,0 +1,5 @@
+# Notas: protótipo Nuvemshop (local, nada publicado)
+
+Bom: home, produto, carrinho (mock), Sobre e FAQ em 390 px, sem rolagem lateral, sem JS, preto/creme com 1 CTA amarelo por bloco, copy só sugere (sem termo de mecanismo), R$ 89,90 marcado simulação, fotos são renders rotulados, só foto3 e foto4 (peça fechada, sem rosca legível); foto1 e foto2 foram removidas porque entregam o segredo (a base manda foto real; trocar quando existir). FAQ e Sobre não citam prazo de devolução em dias.
+Limitações da plataforma: checkout não personalizável (só plano Next, e sem mexer em campos/estrutura), então só caixa cinza; código-fonte do layout só em plano maior (Impulso ou Escala, NÃO VERIFICADO) ou CLI sobre o tema base "ipanema" (plano exigido NÃO VERIFICADO); barra fixa de compra e acordeões dependem do tema escolhido; template provavelmente Twig (HIPÓTESE), não é este HTML direto; agent não edita tema por API (sem escopo).
+Esforço estimado (hipótese): 12 a 20 h para virar tema real (6 a 8 h para configurar tema do catálogo + CSS; 12 a 20 h se for tema próprio via CLI com Twig, mais teste em loja de desenvolvimento).

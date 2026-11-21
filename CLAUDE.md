@@ -36,6 +36,13 @@ Produção: os objetos são feitos por impressão 3D.
 - `pesquisa/` — pesquisas de apoio (ex.: materiais 3D)
 - `src/` — (a criar) código do produto
 
+## Arquitetura (visão geral)
+- Fluxo de Produto: `selecao → segredo → modelagem → validacao → entrega`, com 2 aprovações humanas (depois da seleção e depois da validação). Nada vai pra produção sem as duas. Ver `agents/produto/README.md`.
+- O segredo de cada objeto vive só em `produtos/<nome>/`. Fora dali (marketing, loja, README) só se sugere.
+- Modelos: cada versão é um script novo (`_v1`, `_v2`...), não edição do anterior. Os scripts encadeiam: `porta-lapis_v5.py` carrega `porta-lapis_v3.py` via `importlib` e reaproveita os parâmetros; tampa v5 combina com corpo v4. Os `.stl` ficam versionados ao lado dos scripts.
+- Parâmetros de impressão (PETG, bico 0,6 mm, paredes em múltiplos de ~0,6 mm, folga de rosca ≥ 0,4 mm) estão em `produtos/organizador-mesa/parametros-impressao.md`. Nada foi impresso ainda: tudo é estimativa até o teste físico.
+- `docs/CONTEXTO.md` guarda decisões e pendências. Atualize ao fechar uma decisão.
+
 ## Regras de ouro (o Claude segue isso à risca)
 - Responda em português, tom informal e direto.
 - Mudança pequena: mostre só o diff, não reescreva o arquivo todo.

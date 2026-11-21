@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faixa Preta - wireframe mobile</title>
+<style>
+:root{--k:#000;--c:#FEF3E6;--w:#fff;--y:#FFC002;--g:#6b6b6b;--line:1px solid #000;--sp:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.6;letter-spacing:.01em;background:#d9d4cc;color:var(--k)}
+.stage{display:flex;flex-direction:column;gap:24px;align-items:center;padding:0}
+.lbl{font:500 10px/1 Inter,Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em}
+h1,h2,h3,.h{font-family:"Space Grotesk","Arial Narrow",Arial,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-.02em;line-height:.9}
+.screen{width:100%;max-width:390px;background:var(--c);position:relative}
+.cap{padding:10px var(--sp);background:var(--k);color:var(--c)}
+.hd{display:flex;justify-content:space-between;align-items:center;padding:12px var(--sp);border-bottom:var(--line);background:var(--c);min-height:52px}
+.logo{display:flex;align-items:center;gap:8px}
+.logo i{display:block;width:34px;height:7px;border:2px solid var(--k);position:relative}
+.logo b{font:700 14px "Space Grotesk",Arial,sans-serif;text-transform:uppercase;letter-spacing:-.02em}
+.nav{display:flex;gap:16px}
+.nav span{min-height:44px;display:flex;align-items:center}
+section{padding:40px var(--sp);border-bottom:var(--line)}
+.dark{background:var(--k);color:var(--c)}
+.hero h1{font-size:44px;margin:16px 0 20px}
+.hero p{max-width:30ch}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;width:100%;border:2px solid var(--k);font:700 14px "Space Grotesk",Arial,sans-serif;text-transform:uppercase;letter-spacing:.04em;background:transparent;color:inherit;margin-top:24px}
+.btn.y{background:var(--y);color:var(--k)}
+.btn.ghost{border:var(--line)}
+.ph{background:var(--w);border:var(--line);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--g);font:500 10px/1.5 Inter,Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em;padding:8px}
+.ph.sq{aspect-ratio:1/1}
+.ph.t{aspect-ratio:4/5}
+.dark .ph{background:#111;border-color:#444;color:#aaa}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.card .name{font:700 14px "Space Grotesk",Arial,sans-serif;text-transform:uppercase;margin-top:8px;line-height:1.1}
+.card .pr{font-size:13px;color:var(--g)}
+h2{font-size:28px;margin:12px 0 0}
+.rule{display:grid;grid-template-columns:1fr 1fr;border:var(--line);margin-top:20px}
+.rule div{padding:12px;font-size:13px}
+.rule div+div{border-left:var(--line)}
+.price{font:700 28px "Space Grotesk",Arial,sans-serif;margin:12px 0 4px}
+.note{font-size:12px;color:var(--g)}
+.dark .note{color:#aaa}
+.spec{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
+.spec td{border-top:var(--line);padding:10px 0}
+.spec td:last-child{text-align:right}
+details{border-top:var(--line);padding:4px 0}
+details:last-of-type{border-bottom:var(--line)}
+summary{min-height:48px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+"}
+details[open] summary::after{content:"-"}
+details p{padding:0 0 12px;font-size:14px}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.thumbs .ph{aspect-ratio:1/1;padding:0}
+.sticky{position:sticky;bottom:0;background:var(--c);border-top:var(--line);padding:10px var(--sp);display:flex;gap:12px;align-items:center}
+.sticky .btn{margin:0}
+.sticky .p{font:700 16px "Space Grotesk",Arial,sans-serif;white-space:nowrap}
+footer{padding:32px var(--sp) 40px;font-size:13px;display:grid;gap:8px}
+.sim{display:inline-block;border:var(--line);padding:2px 6px;margin-left:6px;vertical-align:middle}
+@media(min-width:860px){
+ body{padding:32px}
+ .stage{flex-direction:row;align-items:flex-start;justify-content:center;gap:40px}
+ .screen{border:2px solid var(--k)}
+}
+</style>
+</head>
+<body>
+<main class="stage">
+
+<!-- ===== HOME ===== -->
+<article class="screen" aria-label="Home">
+ <div class="cap lbl">Tela 1 - Home (390 px)</div>
+ <header class="hd">
+  <div class="logo"><i></i><b>Faixa Preta</b></div>
+  <nav class="nav lbl" aria-label="Principal"><span>Sobre</span><span>Conta</span><span>Cesta (0)</span></nav>
+ </header>
+
+ <section class="hero dark">
+  <div class="lbl">Coleção GEN</div>
+  <h1>Nada é só<br>o que parece.</h1>
+  <p>Objetos do cotidiano. Feitos com precisão, impressos em 3D.</p>
+  <a class="btn y" href="#produto">Ver o porta-lápis</a>
+  <!-- unico elemento amarelo da tela -->
+ </section>
+
+ <section>
+  <div class="lbl">Em linha</div>
+  <h2>Porta-lápis</h2>
+  <div class="ph t" style="margin-top:16px">Foto real da peça<br>fundo neutro, 3/4 de cima<br>(pendente: peça ainda não impressa)</div>
+  <p style="margin-top:12px">Preto fosco, estrias finas. Cabe na mesa e some nela.</p>
+  <a class="btn ghost" href="#produto">Ver detalhes</a>
+ </section>
+
+ <section>
+  <div class="lbl">Coleção</div>
+  <h2>Em breve</h2>
+  <div class="grid">
+   <div class="card"><div class="ph sq">Foto<br>pendente</div><div class="name">Objeto 02</div><div class="pr">em breve</div></div>
+   <div class="card"><div class="ph sq">Foto<br>pendente</div><div class="name">Objeto 03</div><div class="pr">em breve</div></div>
+  </div>
+ </section>
+
+ <section class="dark">
+  <div class="lbl">Como é feito</div>
+  <h2 style="margin-bottom:16px">Medida, encaixe, acabamento.</h2>
+  <p>Cada peça nasce de um projeto cuidadoso e sai de uma impressora 3D. O resto, quem usa percebe.</p>
+ </section>
+
+ <footer>
+  <div class="logo"><i></i><b>Faixa Preta</b></div>
+  <span>Sobre · Entrega e trocas · Contato</span>
+  <span class="note">Políticas em revisão. Textos finais pendentes de aprovação.</span>
+ </footer>
+</article>
+
+<!-- ===== PRODUTO ===== -->
+<article class="screen" id="produto" aria-label="Página de produto">
+ <div class="cap lbl">Tela 2 - Produto: Porta-lápis (390 px)</div>
+ <header class="hd">
+  <div class="logo"><i></i><b>Faixa Preta</b></div>
+  <nav class="nav lbl" aria-label="Principal"><span>Buscar</span><span>Cesta (0)</span></nav>
+ </header>
+
+ <section style="padding-top:16px">
+  <div class="note">Início / Porta-lápis</div>
+  <div class="ph sq" style="margin-top:12px">Foto principal<br>fundo neutro, sem props<br>(foto real pendente)</div>
+  <div class="thumbs">
+   <div class="ph">1</div><div class="ph">2</div><div class="ph">3</div><div class="ph">4</div>
+  </div>
+ </section>
+
+ <section>
+  <div class="lbl">Coleção GEN</div>
+  <h1 style="font-size:36px;margin:12px 0 0">Porta-lápis</h1>
+  <div class="price">R$ 89,90 <span class="lbl sim">simulação</span></div>
+  <p class="note">Frete calculado na cesta. Valores de teste.</p>
+  <p style="margin-top:16px">Preto fosco, estrias finas, impresso em 3D. Um porta-lápis. Você acha.</p>
+  <table class="spec" aria-label="Especificações">
+   <tr><td>Formato</td><td>80 x 150 mm</td></tr>
+   <tr><td>Material</td><td>PETG</td></tr>
+   <tr><td>Cor</td><td>Preto fosco</td></tr>
+  </table>
+ </section>
+
+ <section>
+  <details><summary class="h" style="font-size:16px">Medidas e material</summary><p>Ficha final só depois da peça medida. Hoje: números do projeto, a confirmar.</p></details>
+  <details><summary class="h" style="font-size:16px">Entrega</summary><p>Prazo: 1 dia de produção mais o prazo do frete. Detalhes a definir.</p></details>
+  <details><summary class="h" style="font-size:16px">Trocas</summary><p>Política em definição. Texto final pendente.</p></details>
+ </section>
+
+ <section class="dark">
+  <div class="lbl">Repara</div>
+  <h2 style="margin-top:12px">Quem usa, percebe.</h2>
+ </section>
+
+ <section>
+  <div class="lbl">Da mesma coleção</div>
+  <div class="grid">
+   <div class="card"><div class="ph sq">Foto<br>pendente</div><div class="name">Objeto 02</div><div class="pr">em breve</div></div>
+   <div class="card"><div class="ph sq">Foto<br>pendente</div><div class="name">Objeto 03</div><div class="pr">em breve</div></div>
+  </div>
+ </section>
+
+ <div class="sticky">
+  <span class="p">R$ 89,90</span>
+  <a class="btn y" href="#produto">Adicionar à cesta</a>
+  <!-- unico elemento amarelo da tela -->
+ </div>
+ <footer>
+  <span>Sobre · Entrega e trocas · Contato</span>
+ </footer>
+</article>
+
+</main>
+</body>
+</html>

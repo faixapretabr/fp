@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<!--
+PROTÓTIPO LOCAL - Faixa Preta - modelo Shopify (mobile first). Nada publicado. Loja real intocada.
+Todo preço, prazo e frete é SIMULAÇÃO. Fotos: só RENDERS com a peça fechada/sem detalhe de mecanismo (foto3, foto4); foto1/foto2 vetadas. Hero só tipográfico.
+
+EDITÁVEL DE FATO (plano Basic, tema próprio em Liquid):
+- Home, coleção, produto, páginas (Sobre, FAQ, políticas), cabeçalho, rodapé, menus: liberdade total via seções/blocos Liquid.
+- Tipografia, cores, microinterações em CSS/JS leve, barra fixa de compra, galeria, acordeões, FAQ.
+- Página de Obrigado e Status do pedido (editor de checkout: blocos, web pixels).
+- Carrinho (página/gaveta) no tema.
+
+EXIGIRIA SHOPIFY PLUS (fatos em docs/operacao/t13-plataformas.md §3):
+- Layout e campos das etapas Informação/Envio/Pagamento do checkout (no Basic: "padrão da plataforma"; confirmação oficial do plano NÃO VERIFICADA, fonte: terceiros).
+- Scripts adicionais no checkout (só leitura desde 2025-08-28 para não Plus).
+- Meta: o checkout aparece abaixo como caixa cinza, sem design nosso.
+Brasil fora do Shopify Payments: Pix/cartão via gateway de terceiros (t13 §1).
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porta-lápis preto de mesa, impresso em 3D | Faixa Preta</title>
+<meta name="description" content="Porta-lápis de mesa em PETG, impresso em 3D, preto fosco com caneluras. Parece comum. Quem usa todo dia sabe que não é. Faixa Preta.">
+<style>
+:root{--k:#000;--c:#FEF3E6;--w:#fff;--y:#FFC002;--g:#5f5a54;--ln:1px solid #000;--sp:16px;
+--d:"Space Grotesk","Arial Narrow",Arial,sans-serif;--t:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 15px/1.6 var(--t);letter-spacing:.01em;background:#cfc9c0;color:var(--k)}
+a{color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.lbl{font:500 10px/1 var(--t);text-transform:uppercase;letter-spacing:.14em}
+h1,h2,h3,.h{font:700 1em var(--d);text-transform:uppercase;letter-spacing:-.02em;line-height:.9}
+.wrap{display:flex;flex-direction:column;align-items:center;gap:0}
+.pg{width:100%;max-width:390px;background:var(--c);position:relative;margin:0 auto}
+.tag{background:var(--k);color:var(--c);padding:10px var(--sp);display:flex;justify-content:space-between}
+.tag b{color:#aaa;font-weight:500}
+/* cabeçalho */
+.hd{display:flex;justify-content:space-between;align-items:center;padding:0 var(--sp);border-bottom:var(--ln);min-height:56px;background:var(--c);position:sticky;top:0;z-index:5}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo i{display:block;width:36px;height:8px;border:2.5px solid #000;position:relative;transition:width .3s}
+.logo i::before{content:"";position:absolute;left:-7px;top:-3px;width:9px;height:9px;border-left:2.5px solid #000;border-bottom:2.5px solid #000;transform:rotate(0deg);display:none}
+.logo:hover i{width:46px}
+.logo b{font:700 14px var(--d);text-transform:uppercase;letter-spacing:-.02em}
+.nav{display:flex}
+.nav a{min-height:44px;padding:0 8px;display:flex;align-items:center;text-decoration:none;position:relative}
+.nav a::after{content:"";position:absolute;left:8px;right:8px;bottom:10px;height:1px;background:#000;transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav a:hover::after,.nav a:focus-visible::after{transform:scaleX(1)}
+section{padding:44px var(--sp);border-bottom:var(--ln)}
+.dark{background:var(--k);color:var(--c)}
+/* botões */
+.btn{display:flex;align-items:center;justify-content:space-between;min-height:54px;width:100%;border:2px solid #000;padding:0 18px;font:700 14px var(--d);text-transform:uppercase;letter-spacing:.04em;background:transparent;color:inherit;text-decoration:none;margin-top:24px;transition:transform .15s,background .2s,color .2s}
+.btn span{transition:transform .2s}
+.btn:hover span{transform:translateX(5px)}
+.btn:active{transform:translateY(1px)}
+.btn.y{background:var(--y);color:#000;border-color:var(--y)}
+.btn.y:hover{background:#000;color:var(--y)}
+.dark .btn.g{border-color:var(--c)}
+.btn.g:hover{background:#000;color:var(--c)}
+/* hero */
+.hero{padding-top:28px;padding-bottom:56px;overflow:hidden}
+.hero h1{font-size:54px;margin:20px 0 22px}
+.hero h1 em{font-style:normal;display:block;color:transparent;-webkit-text-stroke:1.5px var(--c)}
+.hero p{max-width:30ch;color:#d8cfc2}
+.hero .fig{margin:28px calc(var(--sp)*-1) -32px;aspect-ratio:4/5;position:relative;border-top:1px solid #333}
+.hero .fig img{filter:grayscale(.15) contrast(1.05);transition:transform 1.2s}
+.hero .fig:hover img{transform:scale(1.04)}
+.hero .fig .lbl{position:absolute;left:var(--sp);bottom:12px;background:#000;padding:5px 7px;color:#bbb}
+.fadein{animation:up .8s both}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* lista */
+h2{font-size:30px;margin-top:14px}
+.row{display:grid;grid-template-columns:1fr;gap:0}
+.pcard{display:block;text-decoration:none;margin-top:20px}
+.pcard .im{aspect-ratio:4/5;overflow:hidden;border:var(--ln);background:#fff}
+.pcard .im img{transition:transform .8s}
+.pcard:hover .im img{transform:scale(1.05)}
+.pcard .nm{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;font:700 16px var(--d);text-transform:uppercase}
+.sim{display:inline-block;border:var(--ln);padding:3px 5px;font:500 9px/1 var(--t);letter-spacing:.14em;text-transform:uppercase;vertical-align:middle;margin-left:6px;font-family:var(--t)}
+.note{font-size:12px;color:var(--g);line-height:1.5}
+.dark .note{color:#aaa}
+/* régua de medidas */
+.ruler{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--c);margin-top:24px}
+.ruler div{padding:14px 10px}
+.ruler div+div{border-left:1px solid var(--c)}
+.ruler b{display:block;font:700 22px var(--d);margin-top:8px;letter-spacing:-.02em}
+/* produto */
+.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;margin:12px calc(var(--sp)*-1) 0;padding:0 var(--sp);scrollbar-width:none}
+.gal::-webkit-scrollbar{display:none}
+.gal figure{flex:0 0 86%;scroll-snap-align:center;aspect-ratio:4/5;border:var(--ln);overflow:hidden;background:#fff;position:relative}
+.gal figcaption{position:absolute;right:0;top:0;background:#000;color:var(--c);padding:5px 7px}
+.dots{display:flex;gap:6px;margin-top:10px}
+.dots i{width:18px;height:2px;background:#000;opacity:.25}.dots i:first-child{opacity:1}
+.crumb{font-size:12px;color:var(--g)}
+.pt h1{font-size:44px;margin:12px 0 0}
+.price{font:700 30px var(--d);margin:14px 0 2px}
+.draw{margin-top:28px;border:var(--ln);background:#fff;padding:16px;position:relative}
+.draw svg{display:block;width:100%;height:auto}
+.draw .lbl{display:block;margin-bottom:8px}
+.spec{width:100%;border-collapse:collapse;margin-top:20px;font-size:14px}
+.spec td{border-top:var(--ln);padding:11px 0}
+.spec td:last-child{text-align:right;font-weight:500}
+.spec tr:last-child td{border-bottom:var(--ln)}
+details{border-top:var(--ln)}
+details:last-of-type{border-bottom:var(--ln)}
+summary{min-height:56px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none;font:700 16px var(--d);text-transform:uppercase;letter-spacing:-.02em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 16px;font-size:14px;max-width:44ch}
+details[open] p{animation:up .35s both}
+.quote{padding:64px var(--sp)}
+.quote h2{font-size:46px;margin-top:16px}
+.quote h2 s{text-decoration:none;display:inline-block;border-bottom:2px solid var(--c)}
+.sticky{position:sticky;bottom:0;background:var(--c);border-top:var(--ln);padding:10px var(--sp);display:flex;gap:14px;align-items:center;z-index:5}
+.sticky .p{font:700 16px var(--d);white-space:nowrap}
+.sticky .btn{margin:0;min-height:52px}
+/* checkout padrão */
+.chk{background:#d4d4d4;border:1px dashed #777;color:#444;padding:20px 16px;margin-top:20px}
+.chk .lbl{color:#555}
+.chk div.f{background:#e6e6e6;border:1px solid #aaa;height:34px;margin-top:8px}
+.chk p{font-size:12px;margin-top:12px;color:#555}
+.ty{border:var(--ln);padding:18px;margin-top:20px;background:#fff}
+.ty h3{font-size:22px;margin-top:10px}
+footer{padding:36px var(--sp) 44px;background:var(--c);display:grid;gap:12px;font-size:13px}
+footer nav{display:flex;flex-wrap:wrap;gap:4px 18px}
+footer nav a{min-height:36px;display:flex;align-items:center}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(min-width:860px){body{padding:32px}.wrap{flex-direction:row;align-items:flex-start;justify-content:center;gap:40px}.pg{margin:0;border:2px solid #000}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<!-- ================= HOME ================= -->
+<article class="pg" id="home" aria-label="Home">
+ <div class="tag lbl">Home <b>seção: hero + produto + faixa + FAQ</b></div>
+ <header class="hd">
+  <a class="logo" href="#home"><i></i><b>Faixa Preta</b></a>
+  <nav class="nav lbl" aria-label="Principal"><a href="#faq">Perguntas</a><a href="#home">Conta</a><a href="#produto">Cesta (0)</a></nav>
+ </header>
+
+ <section class="hero dark">
+  <div class="lbl fadein">Coleção GEN</div>
+  <h1 class="fadein" style="animation-delay:.1s">Nada é só <em>o que parece.</em></h1>
+  <p class="fadein" style="animation-delay:.2s">Objetos do cotidiano. Feitos com precisão, impressos em 3D.</p>
+  <a class="btn y fadein" style="animation-delay:.3s" href="#produto">Ver o porta-lápis <span>&rarr;</span></a>
+ </section>
+
+ <section>
+  <div class="lbl">Em linha</div>
+  <h2>Feito pra ficar na mesa e passar batido</h2>
+  <a class="pcard" href="#produto">
+   <div class="im"><img src="../../marketing-teste/foto4_916_3-4-de-cima_RENDER.png" alt="Porta-lápis preto visto de cima em ângulo 3/4" loading="lazy" style="object-position:50% 40%"></div>
+   <div class="nm"><span>Porta-lápis</span><span>R$ 89,90<span class="sim">simulação</span></span></div>
+  </a>
+  <p style="margin-top:12px">Preto fosco, caneluras finas. Cabe na mesa e some nela.</p>
+ </section>
+
+ <section class="dark">
+  <div class="lbl">Como é feito</div>
+  <h2 style="margin-bottom:16px">Medida, encaixe, acabamento.</h2>
+  <p>Cada peça nasce de um projeto cuidadoso e sai de uma impressora 3D. O resto, quem usa percebe.</p>
+  <div class="ruler lbl" aria-label="Três fatos">
+   <div>Material<b>PETG</b></div><div>Cor<b>Preto</b></div><div>Feito<b>3D</b></div>
+  </div>
+ </section>
+
+ <section id="faq">
+  <div class="lbl">Perguntas frequentes</div>
+  <h2 style="margin-bottom:20px">Antes de levar.</h2>
+  <details><summary>De que material é feito?</summary><p>PETG, impresso em 3D, na cor preta. Resistente, com acabamento firme.</p></details>
+  <details><summary>Por que dá pra notar as camadas?</summary><p>Os objetos são impressos em 3D, então pequenas variações de textura são normais.</p></details>
+  <details><summary>Prazo de produção e entrega?</summary><p>A definir. Os prazos ainda são simulação até haver dado real.</p></details>
+  <details><summary>Posso devolver?</summary><p>Prazos e trocas conforme o CDC. Texto final em revisão (SIMULAÇÃO).</p></details>
+  <details><summary>Ele é só um porta-lápis?</summary><p>É um porta-lápis, e dos bons. O resto você descobre com ele na mão.</p></details>
+ </section>
+
+ <footer>
+  <a class="logo" href="#home"><i></i><b>Faixa Preta</b></a>
+  <nav><a href="#home">Sobre</a><a href="#faq">Entrega e trocas</a><a href="#home">Contato</a></nav>
+  <span class="note">Protótipo local. Preços, prazos e políticas são simulação.</span>
+ </footer>
+</article>
+
+<!-- ================= PRODUTO ================= -->
+<article class="pg" id="produto" aria-label="Página de produto">
+ <div class="tag lbl">Produto <b>template product.json</b></div>
+ <header class="hd">
+  <a class="logo" href="#home"><i></i><b>Faixa Preta</b></a>
+  <nav class="nav lbl" aria-label="Principal"><a href="#produto">Buscar</a><a href="#produto">Cesta (0)</a></nav>
+ </header>
+
+ <section class="pt" style="padding-top:16px">
+  <div class="crumb"><a href="#home">Início</a> / Porta-lápis</div>
+  <div class="gal" tabindex="0" aria-label="Galeria (deslize)">
+   <figure><img src="../../marketing-teste/foto3_916_mao-usando_RENDER.png" alt="Mão pegando uma caneta no porta-lápis preto com caneluras" loading="lazy"><figcaption class="lbl">Render</figcaption></figure>
+   <figure><img src="../../marketing-teste/foto4_916_3-4-de-cima_RENDER.png" alt="Porta-lápis preto visto de cima em ângulo 3/4" loading="lazy"><figcaption class="lbl">Render</figcaption></figure>
+  </div>
+  <div class="dots" aria-hidden="true"><i></i><i></i></div>
+
+  <div class="lbl" style="margin-top:32px">Coleção GEN</div>
+  <h1>Porta-lápis<br>Faixa Preta</h1>
+  <p class="price">R$ 89,90<span class="sim">simulação</span></p>
+  <p class="note">Frete calculado na cesta. Valores de teste.</p>
+  <p style="margin-top:16px">Preto fosco, caneluras finas, impresso em 3D. Um porta-lápis. Você acha.</p>
+
+  <div class="draw" aria-label="Desenho técnico com medidas">
+   <span class="lbl">Projeto &middot; 80 x 150 mm (a confirmar)</span>
+   <svg viewBox="0 0 300 200" role="img" aria-label="Contorno do porta-lápis com cotas 80 e 150 milímetros">
+    <g fill="none" stroke="#000" stroke-width="1.2">
+     <rect x="100" y="20" width="90" height="160"/>
+     <g stroke-width=".8" opacity=".5"><path d="M115 20v160M130 20v160M145 20v160M160 20v160M175 20v160"/></g>
+     <path d="M100 195h90M100 190v10M190 190v10" stroke-width=".8"/>
+     <path d="M215 20v160M210 20h10M210 180h10" stroke-width=".8"/>
+    </g>
+    <g font-family="Arial" font-size="10" fill="#000"><text x="130" y="192" dy="-8">80</text><text x="224" y="104">150</text></g>
+   </svg>
+  </div>
+
+  <table class="spec" aria-label="Especificações">
+   <tr><td>Formato</td><td>80 x 150 mm</td></tr>
+   <tr><td>Material</td><td>PETG</td></tr>
+   <tr><td>Cor</td><td>Preto fosco</td></tr>
+  </table>
+ </section>
+
+ <section>
+  <details><summary>Medidas e material</summary><p>Ficha final só depois da peça medida. Hoje: números do projeto, a confirmar.</p></details>
+  <details><summary>Entrega</summary><p>Produção sob demanda, mais o prazo do frete. Prazos a definir.</p></details>
+  <details><summary>Trocas</summary><p>Prazos e trocas conforme o CDC. Texto final em revisão (SIMULAÇÃO).</p></details>
+ </section>
+
+ <section class="dark quote">
+  <div class="lbl">Repara</div>
+  <h2>Quem usa, <s>percebe.</s></h2>
+ </section>
+
+ <section>
+  <div class="lbl">Checkout (padrão da plataforma)</div>
+  <div class="chk" aria-label="Checkout padrão Shopify, fora do nosso design">
+   <div class="lbl">Informação &middot; Envio &middot; Pagamento</div>
+   <div class="f"></div><div class="f"></div><div class="f"></div>
+   <p>Padrão da plataforma. No plano Basic não editamos layout nem campos (Plus).</p>
+  </div>
+  <div class="ty">
+   <div class="lbl">Página de Obrigado (editável no Basic)</div>
+   <h3>Pedido a caminho da impressora.</h3>
+   <p class="note" style="margin-top:10px">Confirmação enviada por e-mail. Prazo: a definir (simulação).</p>
+  </div>
+ </section>
+
+ <div class="sticky">
+  <span class="p">R$ 89,90</span>
+  <a class="btn y" href="#produto">Adicionar à cesta <span>&rarr;</span></a>
+ </div>
+ <footer><nav><a href="#home">Sobre</a><a href="#faq">Entrega e trocas</a><a href="#home">Contato</a></nav></footer>
+</article>
+
+</main>
+</body>
+</html>
